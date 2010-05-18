@@ -1,33 +1,44 @@
 
 (function($){  
-	$.fn.uiNestedSortables = function() {  
+	$.fn.smmNestedSortable = function() {  
 		var defaults = {  
 			placeholderClass: "placeholder" 
 		};
 		var options = $.extend(defaults, options);  
 		$(this).sortable({
 			items: "li",
+			helper: "helper",
 			placeholder:'placeholder',
+			revert: true,
+			forceHelperSize: true,
 			sort: function(event, ui){
-				$.fn.uiNestedSortables.change(event, ui);
-			//	if($(ui.placeholder).children().length <= 0){
-			///		$(ui.placeholder).append("<div class='"+defaults.placeholderClass+"'>...<\/div>");
-				//}
+				// ui.helper - item being dragged
+ 				if($(ui.placeholder).children().length <= 0){
+			//				console.log("ui", ui, event, this);
+						//	var frag  = document.createDocumentFragment();
+						//	$(frag).append(ui.helper);
+					
+					$(ui.placeholder).append("<div class='"+defaults.placeholderClass+"'>"+$(ui.helper).html()+"</div>");
+//					$(ui.placeholder).append($(ui.item));
+//					console.log("ui", ui.helper);
+//					console.log(frag);
+				}
 			},
 		   stop: function(event, ui) {
-				$.fn.uiNestedSortables.change(event, ui);
+				$.fn.smmNestedSortable.change(event, ui);
 			}
 	});
-	$.fn.uiNestedSortables.change= function(event, ui) {
+	$.fn.smmNestedSortable.change= function(event, ui) {
 				if(ui.position.left-19  >  ui.originalPosition.left){
-					if(!$(ui.item).is("ul.sortable")){
-							$(ui.item).wrapInner("<li><ul class='sortable'/><\/li>");
-					}
+					
+					console.log($(ui.placeholder).parent());
+//					if(!$(ui.item).is("ul.sortable")){
+						$(ui.item).wrap("<li><ul class='droppable'/></li>");
+//					}
 				}else if(ui.position.left-19  <  ui.originalPosition.left){
 					// kill child
-					console.log("kill child", ui.item);
-					if($(this).parent().is("li")){
-						$(this).parent().replaceWith($(this).children());
+					if($(ui.item).parent().parent().is("li")){
+						$(ui.item).parent().parent().replaceWith($(ui.item));
 					}
 				}
 	}
