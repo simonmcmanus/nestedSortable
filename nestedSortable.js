@@ -1,10 +1,46 @@
 (function($) {
+  var defaults = { option: true };
+  var options = {};
+
+  $.fn.smmNestedSortable = function() {
+	$.fn.smmNestedSortable.makeSortable();
+    return options;
+  };
+
+
+  $.fn.smmNestedSortable.makeSortable = function() {
+      $('.sortable').sortable({
+          items: "li",
+          helper: "helper",
+          placeholder: 'placeholder',
+          revert: true,
+          forceHelperSize: true,
+          sort: function(event, ui) {
+              if ($(ui.placeholder).children().length <= 0) {
+                  $(ui.placeholder).append("<div class='sortable'>" + $(ui.helper).html() + "</div>");
+                  //	$(ui.placeholder).append($(ui.item)); // should work but does not - probably becuse the ui.item is being dragged?!?
+              }
+          },
+          stop: function(event, ui) {
+              $.fn.smmNestedSortable.change(event, ui);
+              $.fn.smmNestedSortable.makeSortable();
+              $('.sortable').smmNestedSortable();
+          }
+      });
+  };
+
+
+/*  function setOptions(new_options) {
+    options = $.extend({}, defaults, options, new_options);
+  }
+*/
+})(jQuery);
+
+/*
+(function($) {
     $.fn.smmNestedSortable = function() {
-        var defaults = {
-            placeholderClass: "placeholder"
-        };
-        var options = $.extend(defaults, options);
-        $.fn.smmNestedSortable.apply(this);
+	
+        $.fn.smmNestedSortable.makeSortable();
     };
     $.fn.smmNestedSortable.change = function(event, ui) {
         if (ui.position.left - 19 > ui.originalPosition.left) {
@@ -21,23 +57,27 @@
                 $(ui.item).parent().parent().replaceWith($(ui.item));
             }
         }
-   }
- 	$.fn.smmNestedSortable.apply = function(sortable) {
-    $(sortable).sortable({
-        items: "li",
-        helper: "helper",
-        placeholder: 'placeholder',
-        revert: true,
-        forceHelperSize: true,
-        sort: function(event, ui) {
-            if ($(ui.placeholder).children().length <= 0) {
-                $(ui.placeholder).append("<div class='sortable'>" + $(ui.helper).html() + "</div>");
-                //					$(ui.placeholder).append($(ui.item)); // should work but does not - probably becuse the ui.item is being dragged?!?
+    }
+    $.fn.smmNestedSortable.makeSortable = function() {
+        $('.sortable').sortable({
+            items: "li",
+            helper: "helper",
+            placeholder: 'placeholder',
+            revert: true,
+            forceHelperSize: true,
+            sort: function(event, ui) {
+                if ($(ui.placeholder).children().length <= 0) {
+                    $(ui.placeholder).append("<div class='sortable'>" + $(ui.helper).html() + "</div>");
+                    //	$(ui.placeholder).append($(ui.item)); // should work but does not - probably becuse the ui.item is being dragged?!?
+                }
+            },
+            stop: function(event, ui) {
+                $.fn.smmNestedSortable.change(event, ui);
+                $.fn.smmNestedSortable.makeSortable();
+                $('.sortable').smmNestedSortable();
             }
-        },
-        stop: function(event, ui) {
-            $.fn.smmNestedSortable.change(event, ui);
-        }
-    });
-};
+        });
+    };
 })(jQuery);
+
+*/
