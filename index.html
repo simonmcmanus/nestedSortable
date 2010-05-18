@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<link href="nestedListSort.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="jquery-1.4.2.js">
+</script>
+		<script type="text/javascript" src="jquery.ui-1.8/jquery-ui-1.8.1.custom.js">
+</script>
+		<script type="text/javascript" src="jquery.ui-1.8/jquery.ui.mouse.js">
+</script>
+		<script type="text/javascript" src="jquery.ui-1.8/jquery.ui.draggable.js">
+</script>
+		<script type="text/javascript" src="jquery.ui-1.8/jquery.ui.droppable.js">
+</script>
+		<script type="text/javascript" src="jquery.ui-1.8/jquery.ui.sortable.js">
+</script>
+<script type="text/javascript" src="nestedSortable.js">
+</script>
+		<title></title>
+	</head>
+	<body>
+		<ul class='sortable'>
+			<li>item 1
+			</li>
+			<li>item 2
+			</li>
+			<li>
+				<ul class='sortable'>
+					<li>sub list item 1
+					</li>
+				</ul>
+			</li>
+			<li>item 3
+			</li>
+			<li>item 4
+			</li>
+			<li>item 5
+			</li>
+		</ul><script type="text/javascript">
+		
+				var hoverItem = function(event, ui) {
+			
+				};
+				
+				
+				
+				/*  TODO : 
+				
+				
+				
+				*/
+				$('.sortable').uiNestedSortables();
+		</script>
+	</body>
+</html>
