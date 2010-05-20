@@ -14,7 +14,7 @@
 </script>
 		<script type="text/javascript" src="jquery.ui-1.8/jquery.ui.sortable.js">
 </script>
-<script type="text/javascript" src="nestedSortable.js">
+<script type="text/javascript" src="jquery.nestedSortable.js">
 </script>
 		<title></title>
 	</head>
@@ -24,12 +24,14 @@
 			</li>
 			<li>item 2
 			</li>
-			<li>
 				<ul class='sortable'>
 					<li>sub list item 1
 					</li>
+						<li>sub list item 2
+						</li>
+							<li>sub list item 3
+							</li>
 				</ul>
-			</li>
 		</ul><script type="text/javascript">
 				$('.sortable').smmNestedSortable();
 		</script>
