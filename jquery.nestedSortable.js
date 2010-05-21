@@ -9,13 +9,13 @@
 			
 			placeholder: 'placeholder',
 			sort: function(event, ui) {
-			///	if ($(ui.placeholder).children().length <= 0) {
-			//		$(ui.placeholder).append("<div class='sortable'>" + $(ui.helper).html() + "</div>");
-			//		// $(ui.placeholder).append($(ui.item)); // should work but does not - probably becuse the ui.item is busy being dragged?!?
-			//	}
+				if ($(ui.placeholder).children().length <= 0) {
+					$(ui.placeholder).append("<div class='sortable'>" + $(ui.helper).html() + "</div>");
+					// $(ui.placeholder).append($(ui.item)); // should work but does not - probably becuse the ui.item is busy being dragged?!?
+				}
 			},
 			stop: function(event, ui) {
-			//	$.fn.smmNestedSortable.change(event, ui);
+				$.fn.smmNestedSortable.change(event, ui);
 			//	$('.sortable').sortable( "refresh" );
 			}
 		});
@@ -24,20 +24,17 @@
   };
 
   $.fn.smmNestedSortable.change = function(event, ui) {
-//	console.log(ui, ui.position.top, ui.originalPosition.top)
-//		var itemHeight = ui.item.height();
 	  if (ui.position.left - 19 > ui.originalPosition.left) {
-			// make child
+			// make child - could/should add some more check in here. 
            $(ui.item).wrapAll("<ul class='sortable'></ul>");
        } else if (ui.position.left - 19 < ui.originalPosition.left) {
-           // kill child
-		// confirm its not the base level element	
-			
-           if ($(ui.item).parent().parent().is("li")) {
-			// if only item in the list
-			if($(ui.item).parent().parent().children().length < 1){ // more than one item in the list
-				$(ui.item).parent().parent().replaceWith($(ui.item));
-			}
+           	// kill child
+			// confirm its not the base level element	
+           if ($(ui.item).parent().parent().is("ul")) {
+				// if only item in the list
+				if($(ui.item).parent().children().length <= 1){ // more than one item in the list
+					$(ui.item).parent().replaceWith($(ui.item));
+				}
            }
        }
 	$('.sortable').sortable( "refresh" );
