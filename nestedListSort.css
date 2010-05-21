@@ -4,6 +4,25 @@ body {
 	font-family:Arial, Helvetica, sans-serif;font-size:90%;
 }
 
+
+
+
+.ui-sortable li {
+	cursor:move;
+	background:#eee;
+	border:2px solid #eee;
+	list-style:none;
+}
+
+
+
+.ui-sortable li:hover {
+	background:#ddd;
+	border:2px solid #eee;
+	list-style:none;
+}
+
+
 a:link {text-decoration:none;color:#0000FF;}
 a:active {text-decoration:none;color:#0000FF;}
 a:visited {text-decoration:none;color:#0000FF;}
@@ -17,12 +36,18 @@ ul {padding-left:1em;margin-left:0em;}
 
 .unmovable {list-style-type:none;font-size:1px;padding:0px;margin:0px;}
 
-.placeholder {
-	background:red;
-	opacity:0.4;
+li.placeholder {
+	border:1px solid #333;
+	opacity:0.2;
+	height:1.4em;
 }
 
+.placeholder  li {
+	border:1px solid #333;
+	
+}
  li {
+	list-style:none;
 }
 
 
