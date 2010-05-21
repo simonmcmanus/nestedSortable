@@ -1,73 +1,39 @@
 (function($) {
-
   $.fn.smmNestedSortable = function(settings) {
     this.each(function() {
  		$(this).sortable({
 			items: "li",
 			helper: "helper",
 			connectWith: '.sortable',
-			
 			placeholder: 'placeholder',
 			sort: function(event, ui) {
-				if ($(ui.placeholder).children().length <= 0) {
-					$(ui.placeholder).append("<div class='sortable'>" + $(ui.helper).html() + "</div>");
-					// $(ui.placeholder).append($(ui.item)); // should work but does not - probably becuse the ui.item is busy being dragged?!?
-				}
+				ui.item = ui.placeholder;
+				$.fn.smmNestedSortable.change(event, ui);
 			},
 			stop: function(event, ui) {
 				$.fn.smmNestedSortable.change(event, ui);
-			//	$('.sortable').sortable( "refresh" );
 			}
 		});
     });
     return this;
   };
-
-  $.fn.smmNestedSortable.change = function(event, ui) {
-	  if (ui.position.left - 19 > ui.originalPosition.left) {
-			// make child - could/should add some more check in here. 
-           $(ui.item).wrapAll("<ul class='sortable'></ul>");
-       } else if (ui.position.left - 19 < ui.originalPosition.left) {
-           	// kill child
-			// confirm its not the base level element	
-           if ($(ui.item).parent().parent().is("ul")) {
-				// if only item in the list
-				if($(ui.item).parent().children().length <= 1){ // more than one item in the list
-					$(ui.item).parent().replaceWith($(ui.item));
+  	$.fn.smmNestedSortable.change = function(event, ui) {
+		if (ui.position.left - 20 > ui.originalPosition.left) { 	// make child - could/should add some more check in here. 
+			if($(ui.placeholder).parent().children().length <= 1)
+				$(ui.item).wrapAll("<li><ul class='sortable'></ul></li>");
+       } else if (ui.position.left - 20 < ui.originalPosition.left) {  // kill child
+          if ($(ui.item).parent().parent().is("ul")) {		// confirm its not the base level element	
+				if($(ui.item).parent().parent().children().length <= 1){ // if only item in the list
+					$(ui.item).parent().parent().replaceWith($(ui.item));
 				}
            }
        }
+	// cleanup unused lists
+	$('ul.sortable').each(function() {
+		if($(this).children().length < 1 || $(this).children().text() == "") // if only item and item is empty.
+			$(this).parent().remove();	// remove the parent li
+	});
+		
 	$('.sortable').sortable( "refresh" );
    }
-
 })(jQuery);
-
-
-/*
-$('.sortable').sortable( "refresh" );
-
-(function($) {
-    $.fn.smmNestedSortable = function() {
-	
-        $.fn.smmNestedSortable.makeSortable();
-    };
-    $.fn.smmNestedSortable.change = function(event, ui) {
-        if (ui.position.left - 19 > ui.originalPosition.left) {
-            console.log('cl', $(ui.item));
-            //					$(ui.item).wrap("<li><ul class='droppable'/></li>");
-            $(ui.item).wrapAll("<li><ul class='sortable'></ul></li>");
-            //					console.log($(ui.item).wrapInner("<li></li>"));
-            //					if(!$(ui.item).is("ul.sortable")){
-            //						$(ui.item).wrap("<li><ul class='droppable'/></li>");
-            //					}
-        } else if (ui.position.left - 19 < ui.originalPosition.left) {
-            // kill child
-            if ($(ui.item).parent().parent().is("li")) {
-                $(ui.item).parent().parent().replaceWith($(ui.item));
-            }
-        }
-    }
-  
-})(jQuery);
-
-*/
