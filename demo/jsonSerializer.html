@@ -42,10 +42,16 @@
 			<li id="item5a">item 5a
 			</li>
 		</ul>
+		<div id="spec"></div>
 		
 		Check out console.log for the serialized data.
 		<script type="text/javascript">
-		$('.sortable').smmNestedSortable();
+		$('.sortable').smmNestedSortable({
+			'serializer':function() {
+				var spec = $.fn.smmNestedSortable.jsonSerializer.buildSpec();
+				$("#spec").html("<b>json output</b><br /><br />"+ spec);
+			}
+		});	
 		</script>
 	</body>
 </html>

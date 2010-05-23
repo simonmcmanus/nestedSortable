@@ -2,7 +2,14 @@
 <html>
 	<head>
 		<link href="../smmNestedSortable.css" type="text/css" rel="stylesheet">
-		
+		<style type="text/css">
+			#spec {
+				padding:2em	;
+				background:#eee;
+				border:4px solid red;
+				color:#333;
+			}
+		</style>
 		<script type="text/javascript" src="../jquery-1.4.2.js"></script>
 		
 		<script type="text/javascript" src="../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
@@ -43,9 +50,15 @@
 			</li>
 		</ul>
 		
-		Check out console.log for the serialized data.
+		<div id='spec'>
+		</div>
 		<script type="text/javascript">
-		$('.sortable').smmNestedSortable();
+		$('.sortable').smmNestedSortable({
+			'serializer':function() {
+				var spec = $.fn.smmNestedSortable.textSerializer.buildSpec();
+				$("#spec").html("<b>text output</b><br /><br />"+ spec);
+			}
+		});
 		</script>
 	</body>
 </html>
