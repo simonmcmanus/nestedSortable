@@ -24,7 +24,7 @@ $.fn.smmNestedSortable.jsonSerializer = {
 	'_buildSpec': function(liList) {
 		var spec = [];
 		liList.each(function() {
-			if(this.id != 'empty'){
+			if(this.id != 'empty') {
 				var li=this;
 				var node = {
 					title: li.id
@@ -35,4 +35,4 @@ $.fn.smmNestedSortable.jsonSerializer = {
 	 	});
 	  return spec;
 	}
-}
+};

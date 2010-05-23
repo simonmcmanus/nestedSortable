@@ -5,11 +5,11 @@ version : 0.1
 
 By Simon McManus (simonmcmanus.com)
 
-Licence: BSD
+Licence: BSD Open Source Licence
 
 TODO : 
-1: Pass in tolerance paramter 
-2: Allow all params available in sortables to be passed into smmNestedSortable
+1: Pass in tolerance paramter.
+2: Allow all params available in sortables to be passed into smmNestedSortable.
 
 */
 
@@ -18,8 +18,7 @@ $.fn.smmNestedSortable = function(options) {
     settings = jQuery.extend({
         serializer: undefined,
         global: true
-    },
-    options);
+    }, options);
     this.each(function() {
         $(this).sortable({
             items: "li",
@@ -59,5 +58,5 @@ $.fn.smmNestedSortable.change = function(event, ui) {
         	$(this).remove();	// remove the parent li
     });
     $('.sortable').sortable("refresh");
-}
+};
 })(jQuery);

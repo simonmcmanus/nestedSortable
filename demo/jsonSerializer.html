@@ -2,9 +2,7 @@
 <html>
 	<head>
 		<link href="../smmNestedSortable.css" type="text/css" rel="stylesheet">
-		
 		<script type="text/javascript" src="../jquery-1.4.2.js"></script>
-		
 		<script type="text/javascript" src="../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
 		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.mouse.js"></script>
 		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.draggable.js"></script>
@@ -12,7 +10,7 @@
 		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.sortable.js"></script>
 		<script type="text/javascript" src="../jquery.smmNestedSortable.js"></script>
 		<script type="text/javascript" src="../jquery.smmNestedSortable.jsonSerializer.js"></script>
-			<script type="text/javascript" src="http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/Plugins/jquery/JSON.js"></script>
+		<script type="text/javascript" src="../json/jquery.json.js"></script>
 		<title>smmNestedSortables JSON Serializer Demo</title>
 	</head>
 	<body>
@@ -43,8 +41,6 @@
 			</li>
 		</ul>
 		<div id="spec"></div>
-		
-		Check out console.log for the serialized data.
 		<script type="text/javascript">
 		$('.sortable').smmNestedSortable({
 			'serializer':function() {
