@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="../smmNestedSortable.css" type="text/css" rel="stylesheet">
+		
+		<script type="text/javascript" src="../jquery-1.4.2.js"></script>
+		
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.draggable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.droppable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.sortable.js"></script>
+		<script type="text/javascript" src="../jquery.smmNestedSortable.js"></script>
+		<script type="text/javascript" src="../jquery.smmNestedSortable.jsonSerializer.js"></script>
+			<script type="text/javascript" src="http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/Plugins/jquery/JSON.js"></script>
+		<title>smmNestedSortables JSON Serializer Demo</title>
+	</head>
+	<body>
+		<h1>smmNestedSortables JSON Serializer Demo</h1>
+		<a href="index.html">back to other demos</a>
+		<ul class='sortable'>
+			<li id="Introduction">Introduction
+			</li>
+			<li id="first">First Section
+			</li>
+			<li id="second">Second Section
+			</li>
+			<li id='third'>Third Section
+				<ul class='sortable'>
+					<li id="subItem1">sub item 1
+					</li>
+					<li id="subItem2">sub item 2
+					</li>
+					<li id="subItem3">sub item 3
+					</li>
+					<li id="subItem4">sub item 4
+					</li>
+					<li id="subItem5">sub item 5
+					</li>
+				</ul>
+			</li>
+			<li id="item5a">item 5a
+			</li>
+		</ul>
+		
+		Check out console.log for the serialized data.
+		<script type="text/javascript">
+		$('.sortable').smmNestedSortable();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<link href="../smmNestedSortable.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="../jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.draggable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.droppable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.sortable.js"></script>
+		<script type="text/javascript" src="../jquery.smmNestedSortable.js"></script>
+		<title>smmNestedSortables Links Demo</title>
+	</head>
+	<body>
+		<h1>smmNestedSortables Links Demo</h1>
+		<a href="index.html">back to other demos</a>
+		<ul>
+			<li>seach engines
+				<ul class='sortable'>
+					<li><a href="http://google.com">google</a></li>
+					<li><a href="http://yahoo.com">yahoo</a></li>
+				</ul>
+			</li>
+			<li>Newspapers
+				<li>
+					<ul class='sortable'>
+						<li><a href="http://www.guardian.co.uk/">http://www.guardian.co.uk/</a></li>
+						<li><a href="http://www.timesonline.co.uk/tol/news/">http://www.timesonline.co.uk/</a></li>
+					</ul>
+				</li>
+			</li>
+		</ul>	
+		<script type="text/javascript">
+		$('.sortable').smmNestedSortable();
+		</script>
+	</body>
+</html>

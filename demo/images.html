@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<link href="../smmNestedSortable.css" type="text/css" rel="stylesheet" />
+		<style type'text/css'>
+		.sortable li {
+//			margin-left:9em;
+		}
+		
+		img {
+			height:40px;
+			width:auto;
+		}
+		</style>
+		
+		<script type="text/javascript" src="../jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.draggable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.droppable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.sortable.js"></script>
+		<script type="text/javascript" src="../jquery.smmNestedSortable.js"></script>
+		<title>smmNestedSortables Images Demo</title>
+	</head>
+	<body>
+			<h1>smmNestedSortables Images Demo</h1>
+			<a href="index.html">back to other demos</a>
+			<ul class='sortable'>
+				<li><img src='http://farm5.static.flickr.com/4012/4612767482_1cf1842c3d_m.jpg' />
+				</li>
+				<li><img src='http://farm4.static.flickr.com/3129/4612152595_df8a0504aa_m.jpg'/>
+				</li>
+				<li><img src='http://farm3.static.flickr.com/2799/4496823862_9d443f0b54_m.jpg'/>
+				</li>
+				<li><img src='http://farm3.static.flickr.com/2601/4050001832_b834108b1e_m.jpg'/>
+				</li>
+				<li><img src='http://www.flickr.com/photos/simonmcmanus/4049243211/'/>
+				</li>
+			</ul>
+		
+		
+		
+		
+		<script type="text/javascript">
+		$('.sortable').smmNestedSortable();
+		</script>
+	</body>
+</html>

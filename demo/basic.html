@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.draggable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.droppable.js"></script>
+		<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.sortable.js"></script>
+		<script type="text/javascript" src="../jquery.smmNestedSortable.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<h1>smmNestedSortables Basic Demo</h1>
+		<a href="index.html">back to other demos</a>
+		<ul class='sortable'>
+			<li>item 1a
+			</li>
+			<li>item 2a
+			</li>
+			<li>item 3a
+			</li>
+			<li>item 4a
+			</li>	
+			<li>
+				<ul class='sortable'>
+					<li>sub item 1
+					</li>
+					<li>sub item 2
+					</li>
+					<li>sub item 3
+					</li>
+					<li>sub item 4
+					</li>
+					<li>sub item 5
+					</li>
+				</ul>
+			</li>
+			<li>item 5a
+			</li>
+		</ul>
+		<script type="text/javascript">
+		$('.sortable').smmNestedSortable();
+		</script>
+	</body>
+</html>
