@@ -1,44 +1,33 @@
 
-// calculates number of pixels to drag the item. Params is the number of items it should be moved.
-calcYShift = function(y) {
-	return y * 20; // should take account of tollerance param.
-}
-
-calcXShift = function(x) {
-	return 20 * x;
-}
-
-
-
-countJsonItems = function(json) {
-	var count = 1;
-	var	_countJsonItems = function(json, count){
-		$(json).each(function() {
-			count++;
-			_countJsonItems(this.children);
-		});
-		return count;
-	};
-	return _countJsonItems(json, count);		
-}
-
 $(document).ready(function() {
 	module("smmNestedSortable Tests- draggy droppy");
 	var div = $('body').append('<div>testing div</div>');
-	var ul = buildList(div, 5);
+	var listItems = 5;
+	var ul = buildList(div, listItems);
 	sl = $(ul).smmNestedSortable({
 		stop:function(event, ui) {
 		     $.fn.smmNestedSortable.change(event, ui);
 			window.newSpec = $.parseJSON(jQuery.fn.smmNestedSortable.jsonSerializer.buildSpec());
-			countJsonItems(window.newSpec);
-	//		console.log(window.newSpec);
 		}
 	});
 	originalSpec = jQuery.fn.smmNestedSortable.jsonSerializer.buildSpec();
 	test("sorting tests", function() {
-
-		var item = jQuery(sl).children().eq(0);
+		var item = jQuery(sl).children().eq(0);// first item;
 		jQuery(item).simulate('drag', {'dy':calcYShift(1), 'dx':calcXShift(1)}); // drag first item down 
+		for(c=0;c<20;c++){
+			jQuery(sl).children().eq(0).simulate('drag', {'dy':calcYShift(randomNumber(19)), 'dx':calcXShift(randomNumber(1))}); // drag first item down 	
+			if(countJsonItems(window.newSpec) == listItems);
+								ok( true, "all pass" );
+		}
+
+
+
+
+
+
+
+
+
 //		jQuery(item).simulate('drag', {'dy':calcYShift(-1), 'dx':calcXShift(-1)}); // drag first item down 
 	var newSpec = jQuery.fn.smmNestedSortable.jsonSerializer.buildSpec();
 	if(originalSpec == newSpec);
