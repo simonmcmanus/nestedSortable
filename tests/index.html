@@ -1,84 +1,35 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<link href="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../smmNestedSortable.css" type="text/css" rel="stylesheet">
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery-1.4.2.js"></script>
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.ui-1.8/jquery-ui-1.8.1.custom.js"></script>
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.ui-1.8/jquery.ui.mouse.js"></script>
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.ui-1.8/jquery.ui.draggable.js"></script>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>jQuery UI Sortable Test Suite</title>
 
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.ui-1.8/jquery.ui.droppable.js"></script>
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.ui-1.8/jquery.ui.sortable.js"></script>
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.smmNestedSortable.js"></script>
-		<script type="text/javascript" src="http://simonmcmanus.com/stuff/smmNestedSortable/demo/../jquery.smmNestedSortable.jsonSerializer.js"></script>
-		
-		<script type='text/javascript' src="../jquery.ui-1.8/jquery.JSON.js"></script>
-		
-		<script type='text/javascript' src="http://jqueryjs.googlecode.com/svn-history/r6063/trunk/plugins/simulate/jquery.simulate.js"></script>
-		
-		  <link rel="stylesheet" href="http://github.com/jquery/qunit/raw/master/qunit/qunit.css" type="text/css" media="screen" />
-		<script type="text/javascript" src="http://github.com/jquery/qunit/raw/master/qunit/qunit.js"></script>
+	<script type="text/javascript" src="../jquery-1.4.2.js"></script>
 
-		
-		<title>smmNestedSortables Simple CSS Demo</title>
-	</head>
-	<body>
-		<h1>smmNestedSortables Simple CSS Demo</h1>
 
-		<a href="index.html">back to other demos</a>
-		<ul class='sortable'>
-			<li id="1">item 1
-			</li>
-			<li id="2">item 2
-			</li>
-			<li id="3">item 3
-			</li>
-			<li id="4">item 4
-			</li>
-			<li id="5">item 5
-			</li>
-		</ul>
-		
-		
-		<h1 id="qunit-header">QUnit example</h1>
-	 <h2 id="qunit-banner"></h2>
-	 <h2 id="qunit-userAgent"></h2>
-	 <ol id="qunit-tests"></ol>
-	  
-		<script type="text/javascript">
-		
-		test("a basic test example", function() {
-			
-		 $('#1').simulate("drag", {dx:0, dy:100})
-	      console.log('sd',$.fn.smmNestedSortable.jsonSerializer.buildSpec());
-	
-	
-		  ok( true, "this test is fine" );
-		  var value = "hello";
-		  equals( "hello", value, "We expect value to be hello" );
-		});
+	<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.mouse.js"></script>
+	<script type="text/javascript" src="../jquery.ui-1.8/jquery.ui.sortable.js"></script>
+	<script type="text/javascript" src="../jquery.smmNestedSortable.js"></script>
+	<script type="text/javascript" src="../jquery.smmNestedSortable.jsonSerializer.js"></script>
+	<script type="text/javascript" src="../json/jquery.json.js"></script>
 
-		module("Module A");
+	<link rel="stylesheet" href="qunit.css" type="text/css"/>
+	<script type="text/javascript" src="qunit.js"></script>
+	<script type="text/javascript" src="jquery.simulate.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
 
-		test("first test within module", function() {
-		  ok( true, "all pass" );
-		});
+	<script type="text/javascript" src="tests.js"></script>
+</head>
+<body>
+<div id="main">
+</div>
+<h1 id="qunit-header">jQuery UI Sortable Test Suite</h1>
+<h2 id="qunit-banner"></h2>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests">
+</ol>
 
-		
-/*		$('.sortable').smmNestedSortable({serialize: function(a,b,c) {
-			console.log(arguments);
-		},
-		items:"li",
-			serializer:function() {
-			console.log('BOO', arguments);
-			}
-		
-		});
-		
-		*/
-		
-		$('.sortable').smmNestedSortable({});
-		
-		</script>
-	</body>
+</body>
 </html>
